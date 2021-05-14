@@ -25,7 +25,7 @@ header = {'x-fb-connection-bandwidth': repr(bd), 'x-fb-sim-hni': repr(sim),
    'x-fb-http-engine': 'Liger'}
 os.system('git pull')
 os.system('clear')
-logo = '\n\x1b[1;92m    DEVIL 😈        \n\x1b[1;92m   DEVIL 😈 \n\x1b[1;91m   DEVIL 😈 \n\x1b[1;91m   DEVIL 😈 \n\x1b[1;97m   DEVIL 😈 \xe2\x80\xa2Malik DEVIL 😈 \n\x1b[1;97m   DEVIL 😈 \n\x1b[1;94m   DEVIL 😈 \n\x1b[1;94m   DEVIL 😈 \n\x1b[1;93m   DEVIL 😈 \n\x1b[1;93m  DEVIL 😈 \n\x1b[1;96m   DEVIL 😈 \n\x1b[1;96m        \n\x1b[1;91m-----------------------------------------------\n\x1b[1;97m\xe2\x9e\xa3 Author : DEVIL 😈 \n\x1b[1;97m\xe2\x9e\xa3 Github : https://github.com/DEVIL-302\n\x1b[1;97m\xe2\x9e\xa3 FB id: DEVIL  \n\x1b[1;91m-----------------------------------------------'
+logo = '\n\x1b[1;92m    DeViL        \n\x1b[1;92m   DeViL \n\x1b[1;91m   DeViL \n\x1b[1;91m   DeViL \n\x1b[1;97m   DeViL \xe2\x80\xa2Malik DeViL \n\x1b[1;97m   DeViL \n\x1b[1;94m   DeViL \n\x1b[1;94m   DeViL \n\x1b[1;93m   DeViL \n\x1b[1;93m  DeViL \n\x1b[1;96m   DeViL \n\x1b[1;96m        \n\x1b[1;91m-----------------------------------------------\n\x1b[1;97m\xe2\x9e\xa3 Author : DEVIL 😈 \n\x1b[1;97m\xe2\x9e\xa3 Github : https://github.com/DEVIL-302\n\x1b[1;97m\xe2\x9e\xa3 FB id: DEVIL  \n\x1b[1;91m-----------------------------------------------'
 
 
 def ip():
