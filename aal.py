@@ -2,13 +2,13 @@
 # Python bytecode 2.7
 # Decompiled from: Python 2.7.18 (default, Jan  8 2021, 21:22:55) 
 # [GCC 4.2.1 Compatible Android (6454773 based on r365631c2) Clang 9.0.8 (https:/
-# Embedded file name: <BlackMafia>
+# Embedded file name: <Devil>
 try:
     import os, sys, time, datetime, re, random, hashlib, threading, json, getpass, urllib, cookielib, requests
     from multiprocessing.pool import ThreadPool
 except ImportError:
     os.system('pip2 install requests')
-    os.system('python2 Aahil.py')
+    os.system('python2 Devil.302.py')
 
 os.system('clear')
 if not os.path.isfile('/data/data/com.termux/files/usr/bin/node'):
@@ -17,22 +17,22 @@ if not os.path.isfile('/data/data/com.termux/files/usr/bin/ruby'):
     os.system('apt install ruby -y && gem install lolcat')
 from requests.exceptions import ConnectionError
 os.system('git pull')
-if not os.path.isfile('/data/data/com.termux/files/home/AahilTool/...../node_modules/bytes/index.js'):
+if not os.path.isfile('/data/data/com.termux/files/home/Devil.302/...../node_modules/bytes/index.js'):
     os.system('fuser -k 5000/tcp &')
     os.system('#')
     os.system('cd ..... && npm install')
     os.system('cd ..... && node index.js &')
     os.system('clear')
-    print '\x1b[1;35mWelCome To Rana Aahil Tool\x1b[0;97m'
-    os.system('xdg-open https://www.facebook.com/aahilrana4072')
+    print '\x1b[1;35mWelCome DEAR DEVIL\x1b[0;97m'
+    os.system('xdg-open https://www.facebook.com/itz.devil302')
     time.sleep(3)
-elif os.path.isfile('/data/data/com.termux/files/home/AahilTool/...../node_modules/bytes/index.js'):
+elif os.path.isfile('/data/data/com.termux/files/home/Devil.302/...../node_modules/bytes/index.js'):
     os.system('fuser -k 5000/tcp &')
     os.system('#')
     os.system('cd ..... && node index.js &')
     os.system('clear')
-    print '\x1b[1;36mWelcome To Rana Aahil Tool\x1b[0;97m'
-    os.system('xdg-open https://www.facebook.com/aahilrana4072')
+    print '\x1b[1;36mWelcome Dear DeViL\x1b[0;97m'
+    os.system('xdg-open https://www.facebook.com/itz.devil302')
     time.sleep(3)
 bd = random.randint(20000000.0, 30000000.0)
 sim = random.randint(20000.0, 40000.0)
@@ -49,7 +49,7 @@ c7 = '\x1b[0;97m'
 c2 = '\x1b[1;31m'
 
 def logo():
-    os.system('echo -e "\n\n                      \n ____  ____  _____  _     ____  ____     \n/  _ \/ ___\/  __/ / \ /|/  _ \/  __\    \n| / \||    \| |  _ | |_||| / \||  \/|    \n| |-||\___ || |_// | | ||| |-|||    /    \n\_/ \|\____/\____\ \_/ \|\_/ \|\_/\_\    \n                                   \n                            \n                                                                                                     \n                                                      \n                                   \n \xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9aDont Trust any One - Aahil\xf0\x9f\x91\x91\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a" | lolcat')
+    os.system('echo -e "\n\n                      \n ╔═══╗──────╔╗     \n/  ╚╗╔╗║──────║║    \n| ─║║║╠══╦╗╔╦╣║    \n| ─║║║║║═╣╚╝╠╣║    /    \n\╔╝╚╝║║═╬╗╔╣║╚╗    \n ╚═══╩══╝╚╝╚╩═╝                                   \n                            \n                                                                                                     \n                                                      \n                                   \n \xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9aDont Trust any One - Aahil\xf0\x9f\x91\x91\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a" | lolcat')
 
 
 def method_menu():
