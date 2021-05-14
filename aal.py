@@ -48,8 +48,6 @@ c6 = '\x1b[1;37m'
 c7 = '\x1b[0;97m'
 c2 = '\x1b[1;31m'
 
-def logo():
-    os.system('echo -e "\n\n                      \n ╔═══╗──────╔╗     \n/  ╚╗╔╗║──────║║    \n| ─║║║╠══╦╗╔╦╣║    \n| ─║║║║║═╣╚╝╠╣║    /    \n\╔╝╚╝║║═╬╗╔╣║╚╗    \n ╚═══╩══╝╚╝╚╩═╝                                   \n                            \n                                                                                                     \n                                                      \n                                   \n \xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9aDont Trust any One - Aahil\xf0\x9f\x91\x91\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a\xef\xbf\x9a" | lolcat')
 
 
 def method_menu():
