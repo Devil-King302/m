@@ -49,7 +49,6 @@ def reg():
         ip()
     else:
         
-    print logo
     print '\tCollecting device info'
     try:
         ipinfo = requests.get('http://ip-api.com/json/')
