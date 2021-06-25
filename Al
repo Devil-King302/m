@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf-8
-# Originally Written By:Jam Shahrukh
+# Originally Written By:
 # Source : Python2"
 # Donot Recode It. 
 
@@ -11,7 +11,7 @@ try:
 except ImportError:
     os.system("pip2 install requests")
     os.system("pkg install nodejs")
-    os.system("python2 f-r.py")
+    os.system("python2 raja.py")
 try:
     os.mkdir('/sdcard/ids')
 except OSError:
@@ -30,17 +30,15 @@ sys.setdefaultencoding("utf8")
  
 logo = """
 
-\033[1;91m███████ \033[1;96m██      \033[1;92m███████ \033[1;93m██   ██ 
-\033[1;91m██   ██ \033[1;96m██      \033[1;92m██      \033[1;93m ██ ██  
-\033[1;91m███████ \033[1;96m██      \033[1;92m█████   \033[1;93m  ███   
-\033[1;91m██   ██ \033[1;96m██      \033[1;92m██      \033[1;93m ██ ██  
-\033[1;91m██   ██ \033[1;96m███████ \033[1;92m███████ \033[1;93m██   ██  
+\033[1;91m╔═╗╔══╗─╔╗╔══╗
+\033[1;91m║╬║║╔╗║─║║║╔╗║
+\033[1;91m║╗╣║╠╣║╔╣║║╠╣║
+\033[1;91m╚╩╝╚╝╚╝╚═╝╚╝╚╝
+\033[1;91m
 \033[3m\033[1;97m══════════════════════════════════════════════
- [✓] Owner   : Hittler Maker Alex PRINCE
- [✓] Youtub  : Technical Alex Prince Official
- [✓] Facebook: Alex Prince
- [✓] Whatsapp: +3171178075
- [✓] don't pheel bro i know hop yateem :)
+ [✓] Owner   : DEVIL 302
+ [✓] Facebook: DEVIL
+ [✓] Whatsapp: +92342******
 ══════════════════════════════════════════════"""
 idh = []
 back = 0
@@ -55,7 +53,7 @@ def tlogin():
 	    print "[✓] TOOL USERNAME: "+username+ " (correct)"
 	else:
 	    print "[!] Invalid Username."
-	    os.system('xdg-open https://www.youtube.com/channel/UCdwF9LXC2aOnM0FXmsiGBpQ')
+	    os.system('xdg-open )
 	    time.sleep(1)
 	    tlogin()
 	    
@@ -65,7 +63,7 @@ def tlogin():
 	    print(logo)
 	    print "[✓] TOOL USERNAME: " +username+ " (correct)"
 	    print "[✓] TOOL PASSWORD: " +passw+ "  (correct)"
-	    os.system('xdg-open https://www.youtube.com/channel/UCdwF9LXC2aOnM0FXmsiGBpQ')
+	    os.system('xdg-open)
 	    time.sleep(1)
 	    login_choice()
 	else:
@@ -181,8 +179,8 @@ def menu():
 	print(logo)
 	print("\t    \033[7m\033[1;32mUser: "+name+"\033[0;97m")
 	print("══════════════════════════════════════════════")
-	print("[1] Crack with auto name pass")
-	print("[2] Crack with choice number pass")
+	print("[1] Crack with auto pass")
+	print("[2] Crack with choice pass")
 	print("[3] Create File")
 	print("[4] Extract Group Post Likes")
 	print("══════════════════════════════════════════════")
@@ -214,11 +212,11 @@ def crack():
 		login_choice()
 	os.system("clear")
 	print(logo)
-	print("\t    \033[7m\033[1;32mAUTO PASS CLONING\033[0;97m")
+	print("\t    \033[7m\033[1;32mAUTO PASS CRACKING\033[0;97m")
 	print("══════════════════════════════════════════════")
-	print("[1] Crack public id")
-	print("[2] Crack followers")
-	print("[3] Crack file")
+	print("[1] Crack from public id")
+	print("[2] Crack from followers")
+	print("[3] Crack from file")
 	print("[0] Back")
 	print("")
 	crack_select()
@@ -274,7 +272,7 @@ def crack_select():
 	elif select =="3":
 		os.system("clear")
 		print(logo)
-		print("\t    \033[7m\033[1;32mAUTO PASS FILE CRACK\033[0;97m")
+		print("\t    \033[7m\033[1;32mAUTO PASS FILE CRACKING\033[0;97m")
 		print("══════════════════════════════════════════════")
 		try:
 			filelist = raw_input("[+] File : ")
