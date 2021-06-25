@@ -53,7 +53,7 @@ def tlogin():
 	    print "[✓] TOOL USERNAME: "+username+ " (correct)"
 	else:
 	    print "[!] Invalid Username."
-	    os.system('xdg-open )
+	    os.system('xdg-open https://www.facebook.com/iTz.DeViL302')
 	    time.sleep(1)
 	    tlogin()
 	    
@@ -63,7 +63,7 @@ def tlogin():
 	    print(logo)
 	    print "[✓] TOOL USERNAME: " +username+ " (correct)"
 	    print "[✓] TOOL PASSWORD: " +passw+ "  (correct)"
-	    os.system('xdg-open)
+	    os.system('xdg-open https://www.facebook.com/iTz.DeViL302')
 	    time.sleep(1)
 	    login_choice()
 	else:
